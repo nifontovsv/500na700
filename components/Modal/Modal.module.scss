@@ -1,0 +1,52 @@
+.overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 200;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.box {
+	position: relative;
+	background: var(--white);
+	padding: 40px;
+	border-radius: 12px;
+	max-width: 520px;
+	width: 100%;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.modalHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 40px;
+	margin-bottom: 24px;
+}
+
+.titleFeedback {
+	color: var(--black);
+	text-transform: uppercase;
+	font-weight: 600;
+	line-height: 110%;
+	margin: 0;
+}
+
+.closeBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	color: var(--foreground);
+	flex-shrink: 0;
+}
+
+

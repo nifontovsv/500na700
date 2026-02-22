@@ -1,0 +1,151 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	.field {
+		.input {
+			box-sizing: border-box;
+			width: 100%;
+			padding: 15px;
+			border: 1px solid var(--black);
+			border-radius: 10px;
+			font-size: var(--font-size-text);
+		}
+		.input::placeholder {
+			font-size: var(--font-size-text);
+			font-weight: 400;
+			line-height: 130%;
+			opacity: 0.5;
+		}
+		.input:focus::placeholder {
+			opacity: 1;
+			color: var(--black);
+		}
+
+		.checkboxLabel {
+			position: relative;
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			color: var(--black);
+			cursor: pointer;
+		}
+
+		.consentText {
+			opacity: 0.5;
+      font-size: var(--font-size-caption);
+      text-transform: uppercase;
+		}
+
+		.checkbox {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 18px;
+			height: 18px;
+			margin: 0;
+			opacity: 0;
+			z-index: 1;
+			cursor: pointer;
+		}
+
+		.checkboxBox {
+			position: relative;
+			flex-shrink: 0;
+			width: 18px;
+			height: 18px;
+			min-width: 18px;
+			min-height: 18px;
+			background-color: var(--background);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			transition: background-image 0.2s ease;
+
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				padding: 1px;
+				background: var(--gradient);
+				filter: brightness(1.2) saturate(1.25);
+				-webkit-mask:
+					linear-gradient(#fff 0 0) content-box,
+					linear-gradient(#fff 0 0);
+				mask:
+					linear-gradient(#fff 0 0) content-box,
+					linear-gradient(#fff 0 0);
+				-webkit-mask-composite: xor;
+				mask-composite: exclude;
+				pointer-events: none;
+			}
+		}
+
+		.checkbox:checked ~ .checkboxBox {
+			background-image: url('/icons/checkbox.svg');
+		}
+	}
+	.field:nth-child(4) {
+		margin-top: 5px;
+		margin-bottom: 20px;
+	}
+
+	.submit {
+		position: relative;
+		z-index: 2;
+		padding: 12px 20px;
+		border-radius: 40px;
+		max-width: 126px;
+		border: none;
+		color: var(--black);
+		background: var(--gradient);
+		cursor: pointer;
+		font-size: var(--font-size-text);
+
+		&::before {
+			content: '';
+			position: absolute;
+			z-index: 1;
+			inset: 0;
+			border-radius: 40px;
+			padding: 1px;
+			background: var(--gradient);
+			-webkit-mask:
+				linear-gradient(#fff 0 0) content-box,
+				linear-gradient(#fff 0 0);
+			mask:
+				linear-gradient(#fff 0 0) content-box,
+				linear-gradient(#fff 0 0);
+			-webkit-mask-composite: xor;
+			mask-composite: exclude;
+			pointer-events: none;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			border-radius: 40px;
+			background: var(--white);
+			opacity: 1;
+			transition: opacity 0.3s ease;
+			pointer-events: none;
+			z-index: 0;
+		}
+
+		&:hover::after {
+			opacity: 0;
+		}
+	}
+
+	.submit:hover {
+		background: var(--gradient);
+		color: var(--white);
+	}
+
+	.submitText {
+		position: relative;
+		z-index: 1;
+	}
+}

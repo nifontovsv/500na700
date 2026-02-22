@@ -39,6 +39,7 @@ body {
 	background: var(--black);
 	color: var(--white);
 	font-family: var(--font-inter), sans-serif;
+  box-sizing: border-box;
 }
 
 .layoutContainer {
