@@ -37,6 +37,14 @@
       text-transform: uppercase;
 		}
 
+		.error {
+			display: block;
+			margin-top: 3px;
+			font-size: var(--font-size-caption);
+			color: red;
+			line-height: 1.3;
+		}
+
 		.checkbox {
 			position: absolute;
 			left: 0;

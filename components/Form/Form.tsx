@@ -35,7 +35,10 @@ export default function Form() {
 					id='name'
 					type='text'
 					value={name}
-					onChange={(e) => setName(e.target.value)}
+					onChange={(e) => {
+						setName(e.target.value)
+						setErrors((prev) => ({ ...prev, name: '' }))
+					}}
 					className={s.input}
 					placeholder='Имя'
 				/>
@@ -47,7 +50,10 @@ export default function Form() {
 					id='phone'
 					mask='+7 (000) 000-00-00'
 					value={phone}
-					onAccept={(value) => setPhone(value ?? '')}
+					onAccept={(value) => {
+						setPhone(value ?? '')
+						setErrors((prev) => ({ ...prev, phone: '' }))
+					}}
 					className={s.input}
 					placeholder='Телефон'
 				/>
@@ -59,7 +65,10 @@ export default function Form() {
 					id='email'
 					type='email'
 					value={email}
-					onChange={(e) => setEmail(e.target.value)}
+					onChange={(e) => {
+						setEmail(e.target.value)
+						setErrors((prev) => ({ ...prev, email: '' }))
+					}}
 					className={s.input}
 					placeholder='Email'
 				/>
@@ -71,7 +80,10 @@ export default function Form() {
 					<input
 						type='checkbox'
 						checked={consent}
-						onChange={(e) => setConsent(e.target.checked)}
+						onChange={(e) => {
+							setConsent(e.target.checked)
+							setErrors((prev) => ({ ...prev, consent: '' }))
+						}}
 						className={s.checkbox}
 						aria-describedby='consent-text'
 					/>
