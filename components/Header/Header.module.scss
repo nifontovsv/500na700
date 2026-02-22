@@ -5,14 +5,20 @@
 	position: sticky;
 	top: 0;
 	z-index: 100;
-  border-bottom: 1px solid #ffffff30;
-  min-height: 119px;
-  padding: 0 40px;
+	border-bottom: 1px solid #ffffff30;
+	min-height: 119px;
+	padding: 0 40px;
+}
+
+.headerScrolled {
+	background: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 }
 
 .feedbackButton {
 	position: relative;
-  z-index: 2;
+	z-index: 2;
 	padding: 12px 20px;
 	text-decoration: none;
 	border-radius: 40px;
@@ -23,7 +29,7 @@
 	&::before {
 		content: '';
 		position: absolute;
-    z-index: 1;
+		z-index: 1;
 		inset: 0;
 		border-radius: 40px;
 		padding: 1px;
@@ -39,21 +45,21 @@
 		pointer-events: none;
 	}
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 40px;
-    background: var(--black);
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: 0;
-  }
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 40px;
+		background: var(--black);
+		opacity: 1;
+		transition: opacity 0.3s ease;
+		pointer-events: none;
+		z-index: 0;
+	}
 
-  &:hover::after {
-    opacity: 0;
-  }
+	&:hover::after {
+		opacity: 0;
+	}
 }
 
 .feedbackButton:hover {
@@ -61,6 +67,6 @@
 }
 
 .feedbackButtonText {
-  position: relative;
-  z-index: 1;
+	position: relative;
+	z-index: 1;
 }

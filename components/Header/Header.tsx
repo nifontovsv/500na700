@@ -1,15 +1,36 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from './Header.module.scss'
+import s from './Header.module.scss'
+import { useEffect, useState } from 'react'
 
 export default function Header() {
+	const [scrolled, setScrolled] = useState(false)
+	const SCROLL_THRESHOLD = 10
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setScrolled(window.scrollY > SCROLL_THRESHOLD)
+		}
+		window.addEventListener('scroll', handleScroll)
+		handleScroll()
+		return () => window.removeEventListener('scroll', handleScroll)
+	}, [])
+
 	return (
-		<header className={styles.header}>
+		<header className={scrolled ? `${s.header} ${s.headerScrolled}` : s.header}>
 			<Link href='/'>
-				<Image className={styles.logo} src='/logo.svg' alt='Логотип' width={70} height={84} />
+				<Image
+					className={s.logo}
+					src='/logo.svg'
+					alt='Логотип'
+					width={70}
+					height={84}
+				/>
 			</Link>
-			<Link className={styles.feedbackButton} href='/#feedback'>
-				<span className={styles.feedbackButtonText}>Связаться с нами</span>
+			<Link className={s.feedbackButton} href='/#feedback'>
+				<span className={s.feedbackButtonText}>Связаться с нами</span>
 			</Link>
 		</header>
 	)

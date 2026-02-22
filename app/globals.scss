@@ -3,16 +3,20 @@
 	--white: #ffffff;
 	--black: #0f0f17;
 
-  /* Градиент */
---color-gradient-start: #FB8627;
---color-gradient-end: #F5BEF6;
---gradient: linear-gradient(180deg, var(--color-gradient-start), var(--color-gradient-end));
-// 135deg - из левого верхнего в правый нижний угол
-// 90deg — слева направо;
-// 180deg или to bottom — сверху вниз;
-// 45deg — по диагонали.
+	/* Градиент */
+	--color-gradient-start: #fb8627;
+	--color-gradient-end: #f5bef6;
+	--gradient: linear-gradient(
+		180deg,
+		var(--color-gradient-start),
+		var(--color-gradient-end)
+	);
+	// 135deg - из левого верхнего в правый нижний угол
+	// 90deg — слева направо;
+	// 180deg или to bottom — сверху вниз;
+	// 45deg — по диагонали.
 
---link-hover-overlay: rgba(255, 255, 255, 0.5);
+	--link-hover-overlay: rgba(255, 255, 255, 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,7 +48,7 @@ body {
 }
 
 a {
-  transition: background 0.2s ease;
+	transition: background 0.2s ease;
 }
 
 // a:hover {
