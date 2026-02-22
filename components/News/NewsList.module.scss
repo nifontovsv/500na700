@@ -1,7 +1,13 @@
 .title {
 	font-size: var(--font-size-h1);
-	padding: 60px 40px 40px 40px;
+	padding: 60px 0 40px 0;
 	margin: 0;
+	text-transform: uppercase;
+
+	@media (max-width: 480px) {
+		padding: 40px 10px 30px 10px;
+		font-size: var(--font-size-h2);
+	}
 }
 
 .loading {
@@ -34,20 +40,19 @@
 		column-gap: 20px;
 		row-gap: 40px;
 		list-style-type: none;
-		grid-template-columns: repeat(1, 440px);
-		justify-content: center;
+		grid-template-columns: minmax(0, 1fr);
 		padding: 0;
 
 		@media (min-width: 991px) {
-			grid-template-columns: repeat(2, 440px);
-			justify-content: center;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 		@media (min-width: 1440px) {
-			grid-template-columns: repeat(3, 440px);
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 
 		.listItem {
-			width: 440px;
+			width: 100%;
+			min-width: 0;
 
 			&:hover {
 				border-radius: 20px;
@@ -60,11 +65,27 @@
 			height: auto;
 			text-decoration: none;
 
-			.imagePlaceholder {
+			.imageWrap {
+				position: relative;
 				width: 100%;
-				aspect-ratio: 440 / 300;
-				background: #eee;
-				border-radius: 8px;
+				aspect-ratio: 440/300;
+				overflow: hidden;
+				.image {
+					object-fit: cover;
+					display: block;
+					overflow: hidden;
+					transition: border-radius 0.3s ease;
+				}
+
+				&:hover .image {
+					border-radius: 20px;
+				}
+				.imagePlaceholder {
+					width: 100%;
+					aspect-ratio: 440 / 300;
+					background: #eee;
+					border-radius: 8px;
+				}
 			}
 
 			.subtitle {
@@ -76,6 +97,10 @@
 				margin-bottom: 10px;
 				margin-top: 20px;
 				transition: color 0.3s ease;
+
+				@media (max-width: 480px) {
+					font-size: var(--font-size-h3);
+				}
 			}
 
 			&:hover .subtitle {
@@ -85,16 +110,6 @@
 				color: transparent;
 			}
 
-			.image {
-				display: block;
-				overflow: hidden;
-				transition: border-radius 0.3s ease;
-			}
-
-			&:hover .image {
-				border-radius: 20px;
-			}
-
 			.description {
 				opacity: 0.5;
 				color: var(--white);
@@ -102,6 +117,14 @@
 				line-height: 130%;
 				font-weight: 400;
 				margin-bottom: 20px;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 3;
+				overflow: hidden;
+
+        @media (max-width: 480px) {
+					font-size: var(--font-size-text);
+				}
 			}
 
 			.date {
@@ -109,6 +132,14 @@
 				font-size: var(--font-size-text);
 				line-height: 130%;
 				font-weight: 400;
+			}
+
+			@media (max-width: 480px) {
+				.subtitle,
+				.description,
+				.date {
+					padding: 0 20px 0 10px;
+				}
 			}
 		}
 	}

@@ -8,6 +8,18 @@
 	border-bottom: 1px solid #ffffff30;
 	min-height: 119px;
 	padding: 0 40px;
+
+	@media (max-width: 480px) {
+		padding: 0 10px;
+    min-height: 83px;
+	}
+
+	.logo {
+		@media (max-width: 480px) {
+			width: 44px;
+			height: 53px;
+		}
+	}
 }
 
 .headerScrolled {
@@ -72,5 +84,5 @@
 }
 
 .titleFeedback {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }

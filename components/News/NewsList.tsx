@@ -28,15 +28,17 @@ export default function NewsList() {
 				{items.map((item) => (
 					<li className={s.listItem} key={item.id}>
 						<Link className={s.listItemLink} href={`/news/${item.id}`}>
+            <div className={s.imageWrap}>
+
 							{item.image ?
 								<Image
                   className={s.image}
 									src={item.image}
-									width={440}
-									height={300}
+									fill
 									alt={item.title || ''}
 								/>
 							:	<div className={s.imagePlaceholder} aria-hidden />}
+            </div>
 							<h2 className={s.subtitle}>{item.subtitle}</h2>
 							<p className={s.description}>{item.description}</p>
 							<time className={s.date}>{item.date}</time>
