@@ -1,0 +1,52 @@
+:root {
+	--container-width: 1440px;
+	--white: #ffffff;
+	--black: #0f0f17;
+
+  /* Градиент */
+--color-gradient-start: #FB8627;
+--color-gradient-end: #F5BEF6;
+--gradient: linear-gradient(180deg, var(--color-gradient-start), var(--color-gradient-end));
+// 135deg - из левого верхнего в правый нижний угол
+// 90deg — слева направо;
+// 180deg или to bottom — сверху вниз;
+// 45deg — по диагонали.
+
+--link-hover-overlay: rgba(255, 255, 255, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #0f0f17;
+		--white: #ededed;
+
+		/* Типографика */
+		--font-size-h1: 40px;
+		--font-size-h2: 24px;
+		--font-size-h3: 20px;
+		--font-size-h4: 16px;
+		--font-size-text: 16px;
+		--font-size-link: 16px;
+		--font-size-caption: 12px;
+	}
+}
+
+body {
+	background: var(--black);
+	color: var(--white);
+	font-family: var(--font-inter), sans-serif;
+}
+
+.layoutContainer {
+	max-width: var(--container-width);
+	margin: 0 auto;
+	width: 100%;
+}
+
+a {
+  transition: background 0.2s ease;
+}
+
+// a:hover {
+//   background: var(--link-hover-overlay);
+// }

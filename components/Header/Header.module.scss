@@ -1,0 +1,66 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+  border-bottom: 1px solid #ffffff30;
+  min-height: 119px;
+  padding: 0 40px;
+}
+
+.feedbackButton {
+	position: relative;
+  z-index: 2;
+	padding: 12px 20px;
+	text-decoration: none;
+	border-radius: 40px;
+	border: none;
+	color: var(--white);
+	background: var(--gradient);
+
+	&::before {
+		content: '';
+		position: absolute;
+    z-index: 1;
+		inset: 0;
+		border-radius: 40px;
+		padding: 1px;
+		background: var(--gradient);
+		-webkit-mask:
+			linear-gradient(#fff 0 0) content-box,
+			linear-gradient(#fff 0 0);
+		mask:
+			linear-gradient(#fff 0 0) content-box,
+			linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+		pointer-events: none;
+	}
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 40px;
+    background: var(--black);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &:hover::after {
+    opacity: 0;
+  }
+}
+
+.feedbackButton:hover {
+	background: var(--gradient);
+}
+
+.feedbackButtonText {
+  position: relative;
+  z-index: 1;
+}
