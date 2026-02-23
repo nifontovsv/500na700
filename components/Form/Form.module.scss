@@ -91,7 +91,7 @@
 		}
 
 		.checkbox:checked ~ .checkboxBox {
-			background-image: url('/icons/checkbox.svg');
+			background-image: var(--checkbox-icon, url('/icons/checkbox.svg'));
 		}
 	}
 	.field:nth-child(4) {

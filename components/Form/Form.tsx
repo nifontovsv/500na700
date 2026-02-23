@@ -28,8 +28,13 @@ export default function Form() {
     console.log({name: name.trim(), email, phone, consent})
   }
 
+	const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 	return (
-		<form className={s.form} onSubmit={handleSubmit}>
+		<form
+			className={s.form}
+			onSubmit={handleSubmit}
+			style={{ ['--checkbox-icon' as string]: `url('${basePath}/icons/checkbox.svg')` }}
+		>
 			<div className={s.field}>
 				<input
 					id='name'
