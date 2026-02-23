@@ -38,7 +38,7 @@ export default function NewsList() {
 								{item.image ?
 									<Image
 										className={s.image}
-										src={item.image}
+										src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${item.image}`}
 										fill
 										sizes="(max-width: 768px) 100vw, (max-width: 991px) 100vw, (max-width: 1440px) 50vw, 440px"
 										alt={item.title || ''}

@@ -26,7 +26,7 @@ export default function Header() {
 			<Link href='/'>
 				<Image
 					className={s.logo}
-					src='/logo.svg'
+					src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/logo.svg`}
 					alt='Логотип'
 					width={70}
 					height={84}

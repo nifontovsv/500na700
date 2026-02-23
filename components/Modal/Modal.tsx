@@ -44,7 +44,7 @@ export default function Modal({ open, onClose, children }: ModalProps) {
         <div className={s.modalHeader}>
           <h2 className={s.titleFeedback}>Связаться с нами</h2>
           <button type="button" className={s.closeBtn} onClick={onClose} aria-label="Закрыть">
-            <Image src="/icons/close.svg" alt="" width={36} height={36} />
+            <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/icons/close.svg`} alt="" width={36} height={36} />
           </button>
         </div>
         {children}

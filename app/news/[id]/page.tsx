@@ -39,7 +39,7 @@ export default async function NewsArticlePage({
 						{item.image ?
 							<Image
 								className={s.image}
-								src={item.image}
+								src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${item.image}`}
 								fill
 								sizes="(max-width: 768px) 100vw, 440px"
 								alt={item.subtitle || ''}
@@ -60,7 +60,7 @@ export default async function NewsArticlePage({
 				<div className={s.footerWrap}>
 					<Image
 						className={s.footerImage}
-						src='/icons/footerlogo.svg'
+						src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/icons/footerlogo.svg`}
 						alt=''
 						width={103}
 						height={124}
