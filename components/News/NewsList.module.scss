@@ -1,4 +1,4 @@
-.title {
+.titleMain {
 	font-size: var(--font-size-h1);
 	padding: 60px 0 40px 0;
 	margin: 0;
@@ -88,7 +88,7 @@
 				}
 			}
 
-			.subtitle {
+			.title {
 				text-transform: uppercase;
 				color: var(--white);
 				font-weight: 600;
@@ -103,7 +103,7 @@
 				}
 			}
 
-			&:hover .subtitle {
+			&:hover .title {
 				background: var(--gradient);
 				background-clip: text;
 				-webkit-background-clip: text;
@@ -120,6 +120,7 @@
 				display: -webkit-box;
 				-webkit-box-orient: vertical;
 				-webkit-line-clamp: 3;
+				line-clamp: 3;
 				overflow: hidden;
 
         @media (max-width: 480px) {
@@ -135,7 +136,7 @@
 			}
 
 			@media (max-width: 480px) {
-				.subtitle,
+				.title,
 				.description,
 				.date {
 					padding: 0 20px 0 10px;

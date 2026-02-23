@@ -4,5 +4,6 @@ export interface NewsItem {
 	title?: string
 	subtitle?: string
 	description?: string
+	text?: string
 	date: string
 }

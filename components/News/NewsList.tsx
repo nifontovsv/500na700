@@ -39,7 +39,7 @@ export default function NewsList() {
 								/>
 							:	<div className={s.imagePlaceholder} aria-hidden />}
             </div>
-							<h2 className={s.subtitle}>{item.subtitle}</h2>
+							<h2 className={s.title}>{item.title}</h2>
 							<p className={s.description}>{item.description}</p>
 							<time className={s.date}>{item.date}</time>
 						</Link>
