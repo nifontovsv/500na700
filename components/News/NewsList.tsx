@@ -13,7 +13,8 @@ export default function NewsList() {
 	useEffect(() => {
 		const load = async () => {
 			await new Promise((r) => setTimeout(r, 500))
-			const res = await fetch('/api/news.json')
+			const base = process.env.NEXT_PUBLIC_BASE_PATH || ''
+		const res = await fetch(`${base}/api/news.json`)
 			const data = await res.json()
 			setItems(data)
 			setLoading(false)

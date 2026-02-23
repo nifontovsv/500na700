@@ -1,20 +1,24 @@
 import { NewsItem } from '@/types/news'
-import { headers } from 'next/headers'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import fs from 'fs'
+import path from 'path'
 import s from './NewsArticle.module.scss'
 
-async function getNewsItem(id: string): Promise<NewsItem | null> {
-	await new Promise((r) => setTimeout(r, 500))
+function getNewsList(): NewsItem[] {
+	const filePath = path.join(process.cwd(), 'public', 'api', 'news.json')
+	const data = fs.readFileSync(filePath, 'utf-8')
+	return JSON.parse(data)
+}
 
-	const headerList = await headers()
-	const host = headerList.get('host') ?? 'localhost:3000'
-	const protocol = headerList.get('x-forwarded-proto') ?? 'http'
-	const base = `${protocol}://${host}`
-
-	const res = await fetch(`${base}/api/news.json`, { cache: 'no-store' })
-	const list: NewsItem[] = await res.json()
+function getNewsItem(id: string): NewsItem | null {
+	const list = getNewsList()
 	return list.find((item) => item.id === id) ?? null
+}
+
+export function generateStaticParams() {
+	const list = getNewsList()
+	return list.map((item) => ({ id: item.id }))
 }
 
 export default async function NewsArticlePage({
@@ -23,7 +27,7 @@ export default async function NewsArticlePage({
 	params: Promise<{ id: string }>
 }) {
 	const { id } = await params
-	const item = await getNewsItem(id)
+	const item = getNewsItem(id)
 
 	if (!item) notFound()
 
