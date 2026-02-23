@@ -37,6 +37,7 @@ export default async function NewsArticlePage({
 								className={s.image}
 								src={item.image}
 								fill
+								sizes="(max-width: 768px) 100vw, 440px"
 								alt={item.subtitle || ''}
 							/>
 						:	<div className={s.imagePlaceholder} aria-hidden />}

@@ -7,6 +7,8 @@ const inter = Inter({
 	subsets: ['latin', 'cyrillic'],
 	weight: ['400', '500', '600'], // Regular, Medium, Semibold
 	variable: '--font-inter',
+	display: 'swap',
+	preload: false,
 })
 
 export const metadata: Metadata = {
@@ -21,7 +23,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ru'>
-			<body className={`${inter.variable} antialiased`}>
+			<body className={`${inter.variable} ${inter.className} antialiased`}>
 				<Header />
 				<div>{children}</div>
 			</body>
