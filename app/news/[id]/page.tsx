@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import fs from 'fs'
 import path from 'path'
 import s from './NewsArticle.module.scss'
+import NewsArticleContent from './NewsArticleContent'
 
 function getNewsList(): NewsItem[] {
 	const filePath = path.join(process.cwd(), 'public', 'api', 'news.json')
@@ -33,35 +34,15 @@ export default async function NewsArticlePage({
 
 	return (
 		<>
-			<div className='layoutContainer'>
-				<main className={s.article}>
-					<div className={s.imageWrap}>
-						{item.image ?
-							<Image
-								className={s.image}
-								src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${item.image}`}
-								fill
-								sizes="(max-width: 768px) 100vw, 440px"
-								alt={item.subtitle || ''}
-							/>
-						:	<div className={s.imagePlaceholder} aria-hidden />}
-					</div>
-					<div className={s.content}>
-						<h1 className={s.title}>{item.title}</h1>
-						<time className={s.date}>{item.date}</time>
-						<div className={s.descriptionWrap}>
-							<h3 className={s.subtitle}>{item.subtitle}</h3>
-							<p className={s.text}>{item.text}</p>
-						</div>
-					</div>
-				</main>
+			<div className="layoutContainer">
+				<NewsArticleContent item={item} />
 			</div>
 			<footer className={s.footer}>
 				<div className={s.footerWrap}>
 					<Image
 						className={s.footerImage}
 						src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/icons/footerlogo.svg`}
-						alt=''
+						alt=""
 						width={103}
 						height={124}
 					/>
